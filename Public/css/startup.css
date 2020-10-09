@@ -61,7 +61,7 @@ body {
 }
 
 .nav-identifier, .profile-identifier {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: 500;
   padding-top: 0.5rem;
 }
@@ -105,10 +105,38 @@ body {
     top:50%;
     left:50%;
     transform: translate(-50%,-50%);
+    background-color: #fff;
+    border: none;
+    border-radius: 1rem;
+    padding: 7rem 3rem 5rem 3rem;
+}
+
+.circle {
+  position: absolute;
+  top: -4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  width: 8rem;
+  height: 8rem;
+  font-size: 4rem;
+  border: none;
+  border-radius: 20rem;
+  color: #5456d6;
+}
+
+.invert {
+  font-size: 3rem;
+  padding: 1rem;
+  margin: 0.5rem;
+  transform: rotate(90deg);
+  color: #56CFE1;
 }
 
 #from, #to{
-    margin: 2.5rem auto;
+    /* margin-bottom: 2.5rem; */
     padding: 1.5rem;
     outline: none;
     font-size: 1.5rem;
@@ -120,6 +148,24 @@ body {
 .form-input:focus{
   border: 1px solid #56CFE1;
   box-shadow: 0px 0px 5px #5E60CE;
+}
+
+.search-button {
+  padding: 1rem 3rem;
+  font-size: 2rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #5E60CE;
+  color: #fff;
+  position: absolute;
+  bottom: -2.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transition: 0.1s linear;
+}
+
+.search-button:hover {
+  transform: scale(1.1);
+  background-color: #5456d6;
 }
 
 .plane-container {
