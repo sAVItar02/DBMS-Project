@@ -20,7 +20,7 @@
             </li>
             <li class="nav-item">
                 <a href="#" class="nav-link"><i class="fas fa-passport"></i></a>
-                <p class="nav-identifier">XXXXXXX</p>
+                <p class="nav-identifier">Travel<br>History</p>
             </li>
             <li class="nav-item">
                 <a href="#" class="nav-link"><i class="fas fa-rupee-sign"></i></a>
@@ -52,16 +52,25 @@
         </svg></a>
         </div>
     </div> -->
+    <img src="../Public/assets/pkane.png" alt="" id="bg-plane">
+    <img src="../Public/assets/pkane-red.png" alt="" id="bg-plane-mirror">
     <div class="container">
         <div class="search">
             <div class="circle"><i class="fas fa-paper-plane"></i></div>
-            <input type="search" class="form-input" name="from" id="from" placeholder="WHERE YOU HEADED FROM?">
+            <div class="search-group">
+                <input type="search" id="from" class="search-input" placeholder="From" required>
+                <label for="from" class="search-label">From</label>
+            </div>
+            <!-- <input type="search" class="form-input" name="from" id="from" placeholder="WHERE YOU HEADED FROM?"> -->
             <div class="invert"><i class="fas fa-exchange-alt"></i></div>
-            <input type="search" class="form-input" name="to" id="to" placeholder="WHERE YOU HEADED TO?">
-            <button class="search-button">Search <i class="fas fa-long-arrow-alt-right"></i></button>
+            <div class="search-group">
+                <input type="search" id="to" class="search-input" placeholder="To" required>
+                <label for="to" class="search-label">To</label>
+            </div>
+            <!-- <input type="search" class="form-input" name="to" id="to" placeholder="WHERE YOU HEADED TO?"> -->
+            <button class="search-button">Search</button>
         </div>
     </div>
-        
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
     <script src="../Public/js/navbar.js"></script>
