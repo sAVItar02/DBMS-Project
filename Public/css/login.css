@@ -15,6 +15,15 @@ body{
     overflow-x: hidden;
     box-sizing: border-box;
 }
+input[type="date"]:before {
+    content: attr(placeholder) !important;
+    margin-right: 3.7em;
+    font-family: 'Montserrat', sans-serif;
+  }
+  input[type="date"]:focus:before,
+  input[type="date"]:valid:before {
+    content: "";
+}
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -65,6 +74,9 @@ input[type=number] {
     border: 1px solid #56CFE1;
     box-shadow: 0px 0px 5px #5E60CE;
 }
+.group-inputs input:nth-of-type(2n+1){
+    margin-right: 1rem;
+}
 #input-date{
     width: 25.25rem;
     color: gray;
@@ -102,7 +114,8 @@ select{
     height: 5rem;
 }
 #signup{
-    margin-top: 25rem;
+    margin-top: 5rem;
+    padding: 5rem 4rem;
 }
 .circle-lg{
     width: 11rem;
@@ -110,9 +123,9 @@ select{
     border-radius: 50rem;
     background-color: #FA2C7E;
     position: absolute;
-    top: 20%;
-    left: 20%;
-    animation: custom-animation2 6s 1s infinite ease-in-out;
+    top: 15%;
+    left: 10%;
+    animation: custom-animation2 7s 1s infinite ease-in-out;
 }
 .circle-md{
     width: 9rem;
@@ -121,8 +134,8 @@ select{
     background-color: #54D2E0;
     position: absolute;
     top: 70%;
-    right: 25%;
-    animation: custom-animation1 5s infinite ease-in-out;
+    right: 15%;
+    animation: custom-animation1 6s infinite ease-in-out;
 }
 .circle-sm, .circle-sm-bordered{
     width: 7rem;
@@ -130,9 +143,9 @@ select{
     border-radius: 50rem;
     background-color: #6DD8BB;
     position: absolute;
-    top: 20%;
+    top: 10%;
     right: 15%;
-    animation: custom-animation3 5s 1s infinite ease-in-out;
+    animation: custom-animation3 7s 1s infinite ease-in-out;
 }
 .circle-sm-bordered{
     background-color: #ffffff;
@@ -148,9 +161,9 @@ select{
     background-color: #4EA8DE;
     transform: rotate(135deg);
     position: absolute;
-    top: 50%;
+    top: 60%;
     left: -15%;
-    animation: custom-animation5 6s infinite ease-in-out;
+    animation: custom-animation5 8s infinite ease-in-out;
 }
 .rectangle-sm{
     width: 25rem;
@@ -158,37 +171,37 @@ select{
     background-color: #5E60CE;
     transform: rotate(135deg);
     position: absolute;
-    top: 60%;
+    top: 50%;
     right: -5%;
-    animation: custom-animation6 6s infinite ease-in-out;
+    animation: custom-animation6 8s infinite ease-in-out;
 }
 @keyframes custom-animation1{
     50%{
         top: 75%;
-        right: 20%;
+        right: 10%;
     }
     100%{
         top: 70%;
-        right: 25%;
+        right: 15%;
     }
 }
 @keyframes custom-animation2{
     50%{
-        top: 25%;
-        left: 25%;
+        top: 20%;
+        left: 15%;
     }
     100%{
-        top: 20%;
-        left: 20%;
+        top: 15%;
+        left: 10%;
     }
 }
 @keyframes custom-animation3{
     50%{
-        top: 25%;
+        top: 15%;
         right: 10%;
     }
     100%{
-        top: 20%;
+        top: 10%;
         right: 15%;
     }
 }
@@ -204,21 +217,21 @@ select{
 }
 @keyframes custom-animation5{
     50%{
-        top: 50%;
+        top: 60%;
         left: -17%;
     }
     100%{
-        top: 50%;
+        top: 60%;
         left: -15%;
     }
 }
 @keyframes custom-animation6{
     50%{
-        top: 55%;
+        top: 45%;
         right: -2.5%;
     }
     100%{
-        top: 60%;
+        top: 50%;
         right: -5%;
     }
 }
