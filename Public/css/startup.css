@@ -184,17 +184,25 @@ body {
   transform: rotate(90deg);
   color: #56CFE1;
   cursor: pointer;
+  border: none;
+  border-radius: 0.2rem;
+  transition: 0.2s ease-in;
+}
+
+.invert:hover {
+  background-color: #dcdee0;
 }
 
 #from, #to{
     /* margin-bottom: 2.5rem; */
     padding: 1.5rem;
     outline: none;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     text-decoration: none;
     width: 26.5rem;
     border: 1px solid lightgray;
     color: #4b4b4b;
+    font-weight: 600;
 }
 
 .search-button {
@@ -221,6 +229,23 @@ body {
   margin: 0px auto;
   z-index: 3;
 }
+
+.blinkOnce {
+  animation: blinkOnce 0.5s;
+}
+
+@keyframes blinkOnce {
+  0% {
+    border: 1px solid lightgray;
+  }
+
+  100% {
+    border: 1px solid dodgerblue;
+  }
+}
+
+
+
  /*Paper Plane: Image*/
 .plane {
   width: 100%;
