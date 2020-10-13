@@ -123,9 +123,9 @@ body {
 }
 
 .card-popup {
-  position: absolute;
-  top: 48vh;
-  left: 50vw;
+  position: fixed;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%,-50%);
   background-color: #FFF;
   z-index: 10;
@@ -136,7 +136,7 @@ body {
   display: flex;
   flex-direction: column;
   /* padding: 3rem 4rem; */
-  visibility: hidden;
+  /* visibility: hidden; */
 }
 
 .popup-details {
