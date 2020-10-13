@@ -43,12 +43,10 @@
             <div class="popup-item">Logout</div>
         </div>
     </nav>
-
     <section class="container">
         <h1>
             Showing all available flights from <span class="from">XXXXX</span> to <span class="to">XXXXX</span>
         </h1>
-
         <div class="card">
             <div class="card-header">
                 <div class="card-tag">Timings</div>
@@ -180,7 +178,39 @@
             </div>
         </div>
     </section>
-
+    <section class="card-popup">
+        <div><p class="close">&times;</p></div>
+        <div class="popup-details">
+            <div class="flight-popup-details">
+                <div class="flight-popup-timings">
+                    <div class="popup-direction">
+                        <p class="from">Delhi</p>
+                        <span>&rarr;</span>
+                        <p class="to">Bangalore</p>
+                    </div>
+                    <div class="popup-timings">
+                        <p>16th October</p>
+                        <span>&nbsp;&#9679;&nbsp;</span>
+                        <p class="from">7:45</p>
+                        <span>-</span>
+                        <p class="to">8:45</p>
+                    </div>
+                    <div class="popup-flight-id">
+                        <p class="flight-id"><i class="fas fa-plane"></i> 6EABC</p>
+                    </div>
+                </div>
+                <div class="popup-price">3500</div>
+            </div>
+            <div class="baggage-popup-details">
+                <p class="baggage-info">
+                    <i class="fas fa-suitcase-rolling"></i>
+                    Check-in Baggage: <span>15</span>kg per person (1 piece only) effective Oct 1st, 2020. For Double or MultiSeats bookings, extra 10 kg. 
+                    Additional charges may apply for excess baggage. Note: For bookings made between May 21 to Sept 30, 2020 (inclusive) for travel up to Nov 24, 2020, the allowance will be 20kg (1 piece only) instead of 15kg.
+                    Hand Baggage  : One hand bag up to 7 kgs and 115 cms, shall be allowed per customer. For contactless travel we recommend to place it under the seat in front, on board.
+                </p>
+            </div>
+        </div>
+    </section> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
     <script src="../Public/js/navbar.js"></script>
 </body>
