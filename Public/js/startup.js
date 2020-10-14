@@ -8,6 +8,14 @@ $(document).ready(function() {
         e.preventDefault();
         InputExchange(fromInput, toInput);
     })
+
+    $('.search-button').on('click', () => {
+        fetch('http://127.0.0.1/:3000/flights?a=2&b=5')
+        .then(response => response.json)
+        .then(result => {
+            console.log(result);
+        })
+    });
 })
 
 function InputExchange(fromInput, toInput) {
@@ -18,4 +26,3 @@ function InputExchange(fromInput, toInput) {
     fromInput.addClass('blinkOnce');
     toInput.addClass('blinkOnce');
 }
-
