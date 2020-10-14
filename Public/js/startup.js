@@ -9,12 +9,15 @@ $(document).ready(function() {
         InputExchange(fromInput, toInput);
     })
 
+
+    const requestoptions = {
+        mode: 'no-cors'
+    }
+
     $('.search-button').on('click', () => {
-        fetch('http://127.0.0.1/:3000/flights?a=2&b=5')
-        .then(response => response.json)
-        .then(result => {
-            console.log(result);
-        })
+        fetch(`https://dbms-flights-project.herokuapp.com/flights?from=asd`, requestoptions)
+        .then(function(response) {response.json()})
+        .then(function(res) { console.log(res) });
     });
 })
 
