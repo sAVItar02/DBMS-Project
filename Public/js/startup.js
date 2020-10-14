@@ -15,9 +15,11 @@ $(document).ready(function() {
     }
 
     $('.search-button').on('click', () => {
-        fetch(`https://dbms-flights-project.herokuapp.com/flights?from=asd`, requestoptions)
-        .then(function(response) {response.json()})
-        .then(function(res) { console.log(res) });
+        fetch('https://dbms-flights-project.herokuapp.com/flights?from=asd', requestoptions)
+        .then(response => response.json())
+        .then((result) => {
+            console.log(result);
+        })
     });
 })
 
