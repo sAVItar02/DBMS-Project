@@ -1,4 +1,6 @@
-var TravelSchema = new mongoose.Schema({
+const mongoose = require("mongoose");
+
+var travelSchema = new mongoose.Schema({
  seatNo: {
     type: Number,
     required: true
@@ -13,3 +15,5 @@ var TravelSchema = new mongoose.Schema({
     ref: "Flights"
  },
 });
+
+module.exports = mongoose.model("Travel", travelSchema);
