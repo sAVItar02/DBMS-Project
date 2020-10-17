@@ -17,17 +17,17 @@ app.use(methodOverride('_method'));
 
 // PASSPORT
 
-app.use(cookieParser('secret'));
-app.use(require("express-session")({
-    secret: "Database secret",
-    resave: false,
-    saveUninitialized: false
-}));
-app.use(passport.initialize());
-app.use(passport.session());
-passport.use(new LocalStrategy(User.authenticate()));
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+// app.use(cookieParser('secret'));
+// app.use(require("express-session")({
+//     secret: "Database secret",
+//     resave: false,
+//     saveUninitialized: false
+// }));
+// app.use(passport.initialize());
+// app.use(passport.session());
+// passport.use(new localStrategy(User.createStrategy()));
+// passport.serializeUser(User.serializeUser());
+// passport.deserializeUser(User.deserializeUser());
 
 // FLIGHTS
 

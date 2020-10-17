@@ -12,11 +12,11 @@ var flightSchema = new mongoose.Schema({
    trim: true
  },
  arrTime: {
-   type: Timestamp,
+   type: Date,
    required: true
  },
  depTime: {
-   type: Timestamp,
+   type: Date,
    required: true
  },
  from: {
