@@ -10,12 +10,12 @@ const paymentSchema = new mongoose.Schema({
  flightID: {
    type: mongoose.Schema.Types.ObjectId,
    required: true,
-   ref: "Flights"
+   ref: 'Flights'
  },
  custID: {
    type: mongoose.Schema.Types.ObjectId,
    required: true,
-   ref: "User"
+   ref: 'User'
  }
 
 })

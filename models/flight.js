@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+
 var flightSchema = new mongoose.Schema({
  checkinWeight: {
    type: Number,
@@ -36,7 +37,13 @@ var flightSchema = new mongoose.Schema({
    type: String,
    required: true,
    trim: true
+ },
+ price: {
+   type: Number,
+   required: true,
+   trim: true
  }
 });
+
 
 module.exports = mongoose.model("Flight", flightSchema);
