@@ -6,6 +6,7 @@ const express      = require("express"),
     session        = require("express-session"),
     methodOverride = require("method-override"),
     flightRouter   = require('./routes/flights');
+    userRouter     = require("./routes/login");
 
 require('./db/mongoose');
 
@@ -16,23 +17,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
 
-// PASSPORT
-
-// app.use(cookieParser('secret'));
-// app.use(require("express-session")({
-//     secret: "Database secret",
-//     resave: false,
-//     saveUninitialized: false
-// }));
-// app.use(passport.initialize());
-// app.use(passport.session());
-// passport.use(new localStrategy(User.createStrategy()));
-// passport.serializeUser(User.serializeUser());
-// passport.deserializeUser(User.deserializeUser());
 
 // FLIGHTS
 
 app.use(flightRouter);
+app.use(userRouter);
 
 app.listen(PORT, function(){
     console.log("Running servers!");
