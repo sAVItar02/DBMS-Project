@@ -1,77 +1,85 @@
-const mongoose = require("mongoose");
-const validator = require("validator");
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
+const mongoose = require('mongoose');
+const validator = require('validator');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const flight = require('./flight');
 
 var userSchema = new mongoose.Schema({
   fname: {
     type: String,
     required: true,
-    trim: true
- },
+    trim: true,
+  },
   lname: {
-    type : String,
+    type: String,
     required: true,
-    trim: true
- },
+    trim: true,
+  },
   email: {
     type: String,
     unique: true,
     required: true,
     trim: true,
     lowercase: true,
-    validate( value ) {
-    if(!validator.isEmail(value))
-    {
-        throw new Error("Invalid Email")
-    }
-  }
+    validate(value) {
+      if (!validator.isEmail(value)) {
+        throw new Error('Invalid Email');
+      }
+    },
   },
   phone: {
     type: Number,
     maxlength: 10,
     unique: true,
-    trim: true
- },
+    trim: true,
+  },
   age: {
     type: Number,
     trim: true,
-    min: 0
- },
+    min: 0,
+  },
   gender: {
     type: String,
-    required: true
- },
+    required: true,
+  },
   password: {
     type: String,
     required: true,
     trim: true,
-    minlength: 6
- },
+    minlength: 6,
+  },
   nationality: {
     type: String,
-    trim: true
- },
+    trim: true,
+  },
   dob: {
     type: Date,
-    required: true
- },
-  isAdmin: {
-    type: Boolean, 
-    default: false
+    required: true,
   },
-  tokens: [{
-    token: {
+  isAdmin: {
+    type: Boolean,
+    default: false,
+  },
+  tokens: [
+    {
+      token: {
         type: String,
-        required: true
-    }
-  }]
+        required: true,
+      },
+    },
+  ],
+  flights: [
+    {
+      flight: {
+        type: String,
+        ref: flight,
+      },
+    },
+  ],
 });
 
-userSchema.pre('save', async function(next) {
-
-  if(!this.isModified('password'))
-  {
+userSchema.pre('save', async function (next) {
+  if (!this.isModified('password')) {
     return;
   }
 
@@ -79,34 +87,32 @@ userSchema.pre('save', async function(next) {
   next();
 });
 
-userSchema.methods.generateAuthToken = async function() {
-  const user = this
-  const token = jwt.sign({ _id: user._id.toString() }, 'deathNote')
+userSchema.methods.generateAuthToken = async function () {
+  const user = this;
+  const token = jwt.sign({ _id: user._id.toString() }, 'deathNote');
 
-  user.tokens = user.tokens.concat({ token })
+  user.tokens = user.tokens.concat({ token });
 
-  await user.save()
+  await user.save();
 
-  return token
-}
+  return token;
+};
 
 userSchema.statics.findByCredentials = async (email, candidatePassword) => {
-  const user = await User.findOne({email});
+  const user = await User.findOne({ email });
 
-  if(!user) 
-  {
-    throw new Error("Unable to login");
+  if (!user) {
+    throw new Error('Unable to login');
   }
 
   const isMatch = await bcrypt.compare(candidatePassword, user.password);
 
-  if(!isMatch) 
-  {
-    throw new Error("Unable to login");
+  if (!isMatch) {
+    throw new Error('Unable to login');
   }
 
   return user;
-}
+};
 
-const User =  mongoose.model("User", userSchema);
+const User = mongoose.model('User', userSchema);
 module.exports = User;

@@ -3,16 +3,16 @@
 *::before {
   margin: 0;
   padding: 0;
-  box-sizing: inherit; 
+  box-sizing: inherit;
 }
 
 html {
-  font-size: 62.5%; 
+  font-size: 62.5%;
   font-family: 'Montserrat', sans-serif;
 }
 
 body {
-  box-sizing: border-box; 
+  box-sizing: border-box;
   overflow-x: hidden;
   height: fit-content;
   background-color: #f5f6f7;
@@ -21,7 +21,7 @@ body {
   align-items: center;
   flex-direction: column;
 }
-  
+
 .container {
   width: 80%;
   padding-top: 4rem;
@@ -34,14 +34,14 @@ body {
 .container > h1 {
   padding-bottom: 2rem;
   color: #383636;
-  border-bottom: 1px solid rgba(163, 163, 163,0.3);
+  border-bottom: 1px solid rgba(163, 163, 163, 0.3);
   margin-bottom: 4rem;
 }
 
 .card {
   width: 100%;
   height: 12rem;
-  background-color: #FFF;
+  background-color: #fff;
   border: none;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
@@ -62,7 +62,8 @@ body {
   height: 85%;
 }
 
-.card-details div, .flight-id {
+.card-details div,
+.flight-id {
   width: 15%;
   height: 100%;
   border: none;
@@ -84,7 +85,7 @@ body {
   flex-direction: column;
 }
 
-.flight-details{
+.flight-details {
   /* padding: 1rem; */
   position: relative;
 }
@@ -92,7 +93,7 @@ body {
 .details {
   font-size: 1.2rem;
   cursor: pointer;
-  color: #4EA8DE;
+  color: #4ea8de;
   position: absolute;
   bottom: 0;
 }
@@ -101,7 +102,7 @@ body {
   padding: 1rem;
 }
 
-.popup-timings{
+.popup-timings {
   display: flex;
   flex-direction: row;
 }
@@ -126,8 +127,8 @@ body {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
-  background-color: #FFF;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
   z-index: 1000;
   width: 50%;
   height: 50%;
@@ -143,11 +144,11 @@ body {
   overflow-y: scroll;
 }
 
-.from, .to{
+.from,
+.to {
   margin-right: 0 1rem;
   text-transform: capitalize;
 }
-
 
 .flight-popup-details {
   border-bottom: 1px solid lightgray;
@@ -158,7 +159,7 @@ body {
   opacity: 0.8;
   color: #666666;
   margin: 2rem 3rem;
-} 
+}
 
 .overlay {
   position: fixed;
@@ -179,20 +180,21 @@ body {
   display: flex;
   flex-direction: column;
 }
-.flight-popup-timings div{
+.flight-popup-timings div {
   margin-bottom: 1rem;
 }
 .baggage-info {
   line-height: 2;
-  padding: .5rem;
+  padding: 0.5rem;
   text-align: justify;
 }
-.popup-direction, .popup-price {
+.popup-direction,
+.popup-price {
   color: #000000;
   font-weight: 600;
 }
 .popup-flight-id {
-  margin-left: 3.5rem; 
+  margin-left: 3.5rem;
   /* Jugaad */
 }
 
@@ -208,14 +210,13 @@ body {
   color: rgb(243, 65, 21);
 }
 
-
 /* scrollbar */
 
-::-webkit-scrollbar{
-  width:10px;
+::-webkit-scrollbar {
+  width: 10px;
 }
 
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
   border-radius: 2px;
-  background-color: #5E60CE;
+  background-color: #5e60ce;
 }
