@@ -143,13 +143,11 @@ body {
   overflow-y: scroll;
 }
 
-.from{
+.from, .to{
   margin-right: 0 1rem;
+  text-transform: capitalize;
 }
 
-.to {
-  margin-left: 0 1rem;
-}
 
 .flight-popup-details {
   border-bottom: 1px solid lightgray;
