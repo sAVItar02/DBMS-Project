@@ -5,9 +5,9 @@ const router = new express.Router();
 
 
 router.get('/flights', async function(req, res){
-    console.log(req.query);
-    const flight = await Flight.find().where('from').equals(req.query.from).where('to').equals(req.query.to);
-    res.send(flight);
+    const {from, to} = req.query;
+    const flights = await Flight.find().where('from').equals(from.toLowerCase()).where('to').equals(to.toLowerCase());
+    res.send(flights);
 });
 
 

@@ -1,19 +1,25 @@
-$('.card-popup').hide();
-$('.overlay').hide();
-$(document).ready(function() {
+fromInputValue = sessionStorage.getItem('fromInputValue');
+toInputValue = sessionStorage.getItem('toInputValue');
 
-    $('.details').on('click', function(e) {
-        e.preventDefault();
-        $(this).parent().parent().parent().children('.card-popup').show();
-        $('.overlay').show();
-        $(this).parent().parent().parent().removeClass('card-hover');
+const api = `https://dbms-flights-project.herokuapp.com/flights?from=${fromInputValue}&to=${toInputValue}`
+// const api = `https://jsonplaceholder.typicode.com/todos/1`;
 
-        $('.close').on('click', (e) => {
-            e.preventDefault();
-            $('.card-popup').hide();
-            $('.overlay').hide();
-            $(this).parent().parent().parent().addClass('card-hover');
-        })
-    })
+var myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
+            
+// var json = JSON.stringify(data);
+            
+var requestOptions = {
+    method: 'GET',
+    redirect: 'follow'
+};
 
-});
+function GetSpecificFlights() {
+    fetch(api, requestOptions)
+    .then(response => response.json())
+    .then((result) => {
+        console.log(result);
+    });
+}
+
+GetSpecificFlights();

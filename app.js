@@ -13,6 +13,7 @@ require('./db/mongoose');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+app.use(require('cors')());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride('_method'));

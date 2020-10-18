@@ -1,3 +1,5 @@
+$('.card-popup').hide();
+$('.overlay').hide();
 $(document).ready(function() {
 
     let fromInput = $("#from");
@@ -10,18 +12,35 @@ $(document).ready(function() {
     })
 
 
-    const requestoptions = {
-        mode: 'no-cors'
-    }
+    $('.search-button').on('click', (e) => {
+        const fromInputValue = fromInput.val();
+        const toInputValue = toInput.val();
 
-    $('.search-button').on('click', () => {
-        fetch('https://dbms-flights-project.herokuapp.com/flights?from=asd', requestoptions)
-        .then(response => response.json())
-        .then((result) => {
-            console.log(result);
-        })
+        sessionStorage.setItem('fromInputValue', fromInputValue)
+        sessionStorage.setItem('toInputValue', toInputValue)
+
+        if(!fromInputValue || !toInputValue)
+        {
+            e.preventDefault();
+        }
     });
+
+    $('.details').on('click', function(e) {
+        e.preventDefault();
+        $(this).parent().parent().parent().children('.card-popup').show();
+        $('.overlay').show();
+        $(this).parent().parent().parent().removeClass('card-hover');
+    
+        $('.close').on('click', (e) => {
+            e.preventDefault();
+            $('.card-popup').hide();
+            $('.overlay').hide();
+            $(this).parent().parent().parent().addClass('card-hover');
+        })
+    })
 })
+
+
 
 function InputExchange(fromInput, toInput) {
     currentFromInputVal = fromInput.val();
@@ -31,3 +50,4 @@ function InputExchange(fromInput, toInput) {
     fromInput.addClass('blinkOnce');
     toInput.addClass('blinkOnce');
 }
+
