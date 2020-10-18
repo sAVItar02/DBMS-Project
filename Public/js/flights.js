@@ -1,50 +1,48 @@
 $('.card-popup').hide();
 $('.overlay').hide();
 
-$(document).ready(function() {
+$(document).ready(function () {
+  fromInputValue = sessionStorage.getItem('fromInputValue');
+  toInputValue = sessionStorage.getItem('toInputValue');
 
+  const api = `https://dbms-flights-project.herokuapp.com/flights?from=${fromInputValue}&to=${toInputValue}`;
+  // const api = `https://jsonplaceholder.typicode.com/todos/1`;
 
-    fromInputValue = sessionStorage.getItem('fromInputValue');
-    toInputValue = sessionStorage.getItem('toInputValue');
+  var myHeaders = new Headers();
+  myHeaders.append('Content-Type', 'application/json');
 
-    const api = `https://dbms-flights-project.herokuapp.com/flights?from=${fromInputValue}&to=${toInputValue}`
-    // const api = `https://jsonplaceholder.typicode.com/todos/1`;
+  // var json = JSON.stringify(data);
 
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-                
-    // var json = JSON.stringify(data);
-                
-    var requestOptions = {
-        method: 'GET',
-        redirect: 'follow'
-    };
+  var requestOptions = {
+    method: 'GET',
+    redirect: 'follow',
+  };
 
-    function GetSpecificFlights() {
-        fetch(api, requestOptions)
-        .then(response => response.json())
-        .then((result) => {
-            console.log(result);
-            let output = ``;
+  function GetSpecificFlights() {
+    fetch(api, requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        console.log(result);
+        let output = ``;
 
-            for(i=0; i<result.length; i++)
-            {
-                const data = {
-                    arrTime: result[i].arrTime,
-                    depTime: result[i].depTime,
-                    cabinWeight: result[i].cabinWeight,
-                    checkinWeight: result[i].checkinWeight,
-                    company: result[i].company,
-                    duration: result[i].duration,
-                    from: result[i].from,
-                    to: result[i].to,
-                    price: result[i].price
-                }
+        for (i = 0; i < result.length; i++) {
+          const data = {
+            arrTime: result[i].arrTime,
+            depTime: result[i].depTime,
+            cabinWeight: result[i].cabinWeight,
+            checkinWeight: result[i].checkinWeight,
+            company: result[i].company,
+            duration: result[i].duration,
+            from: result[i].from,
+            to: result[i].to,
+            price: result[i].price,
+            id: result[i]._id,
+          };
 
-                $('.from').text(data.from);
-                $('.to').text(data.to);
+          $('.from').text(data.from);
+          $('.to').text(data.to);
 
-                output += `<div class="card card-hover">
+          output += `<div class="card card-hover">
                 <div class="card-header">
                     <div class="card-tag">Timings</div>
                     <div class="card-tag">Flight ID</div>
@@ -54,6 +52,7 @@ $(document).ready(function() {
                 </div>
 
                 <div class="card-details">
+                    <p class="hide">${data.id}</p>
                     <div class="timings">
                         <p class="from">7:45</p>
                         <span>-</span>
@@ -102,34 +101,37 @@ $(document).ready(function() {
                         </div>
                     </div>
                 </div> 
-            </div>`
-            }
+            </div>`;
+        }
 
-           
-            $('.card-buffer').empty();
-            $('.card-buffer').html(output);
+        $('.card-buffer').empty();
+        $('.card-buffer').html(output);
 
+        $('.card-popup').hide();
+        $('.overlay').hide();
+
+        $('.details').on('click', function (e) {
+          e.preventDefault();
+          $(this).parent().parent().parent().children('.card-popup').show();
+          $('.overlay').show();
+          $(this).parent().parent().parent().removeClass('card-hover');
+
+          $('.close').on('click', (e) => {
+            e.preventDefault();
             $('.card-popup').hide();
             $('.overlay').hide();
-        
-            $('.details').on('click', function(e) {
-                e.preventDefault();
-                $(this).parent().parent().parent().children('.card-popup').show();
-                $('.overlay').show();
-                $(this).parent().parent().parent().removeClass('card-hover');
-            
-                $('.close').on('click', (e) => {
-                    e.preventDefault();
-                    $('.card-popup').hide();
-                    $('.overlay').hide();
-                    $(this).parent().parent().parent().addClass('card-hover');
-                })
-            })
-            
+            $(this).parent().parent().parent().addClass('card-hover');
+          });
         });
-    }
-    
+        $('.card').on('click', function (e) {
+          e.preventDefault();
+          const currentFlightID = $(this)
+            .children('.card-details')
+            .children('.hide')
+            .text();
+        });
+      });
+  }
 
-    GetSpecificFlights();
-
+  GetSpecificFlights();
 });

@@ -37,16 +37,20 @@ const flight = require('./flight');
 // })
 
 const travelHistorySchema = new mongoose.Schema({
-
-  custID:{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: user
+  user: {
+    custID: {
+      type: String,
+      ref: user,
+    },
+    flights: [
+      {
+        flight: {
+          type: String,
+          required: true,
+        },
+      },
+    ],
   },
-  flightID:{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: flight
-  }
-
 });
 
-module.exports = mongoose.model("Travelhistory", travelHistorySchema);
+module.exports = mongoose.model('Travelhistory', travelHistorySchema);
