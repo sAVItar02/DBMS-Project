@@ -1,16 +1,14 @@
-const express = require('express'),
-  bodyParser = require('body-parser'),
-  mongoose = require('mongoose'),
-  methodOverride = require('method-override'),
-  flightRouter = require('./routes/flights');
-userRouter = require('./routes/login');
-
-require('./db/mongoose');
+const express = require('express');
+const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
+const flightRouter = require('./routes/flights');
+const userRouter = require('./routes/login');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+
 
 app.use(require('cors')());
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
@@ -20,6 +18,4 @@ app.use(methodOverride('_method'));
 app.use(flightRouter);
 app.use(userRouter);
 
-app.listen(PORT, function () {
-  console.log('Running servers!');
-});
+module.exports = app;

@@ -26,18 +26,24 @@ router.post('/flights', async (req, res) => {
 });
 
 router.post('/book', auth, async (req, res) => {
-  const flight = req.query.id;
-  const bookedFlight = { flight };
-  User.flights.push(bookedFlight);
-  User.save();
-  // const travelHistory = await Travelhistory.create({
-  //   custID: req.user.id,
-  //   'flights.flight': flight,
+  var flightID = { flight: req.query.id};
+  User.findOneAndUpdate(
+      {_id: req.user.id},
+      { $push: {flights: flightID}},
+      
+  );
+  // var bookedFlight = Travelhistory({
+  //   user: {
+  //     custID: req.user.id,
+  //     flights: [
+  //       {
+  //         flight: req.query.id,
+  //       },
+  //     ],
+  //   },
   // });
-
-  // const flightData = await Flight.findById(bookedFlight.flights.flight)
-
-  res.send(bookedFlight);
+  // const f = await Travelhistory.create(bookedFlight);
+  
 });
 
 module.exports = router;

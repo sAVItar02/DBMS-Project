@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-var flightSchema = new mongoose.Schema({
+const flightSchema = new mongoose.Schema({
   checkinWeight: {
     type: Number,
     required: true,

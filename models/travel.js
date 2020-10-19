@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-var travelSchema = new mongoose.Schema({
+const travelSchema = new mongoose.Schema({
  seatNo: {
     type: Number,
     required: true
