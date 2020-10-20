@@ -26,12 +26,13 @@ router.post('/flights', async (req, res) => {
 });
 
 router.post('/book', auth, async (req, res) => {
-  var flightID = { flight: req.query.id};
-  User.findOneAndUpdate(
-      {_id: req.user.id},
-      { $push: {flights: flightID}},
-      
+  var flightID = { flight: req.query.id };
+  await User.findOneAndUpdate(
+    { _id: req.user.id },
+    { $push: { flights: flightID } }
   );
+  res.send(req.user);
+
   // var bookedFlight = Travelhistory({
   //   user: {
   //     custID: req.user.id,
@@ -43,7 +44,6 @@ router.post('/book', auth, async (req, res) => {
   //   },
   // });
   // const f = await Travelhistory.create(bookedFlight);
-  
 });
 
 module.exports = router;

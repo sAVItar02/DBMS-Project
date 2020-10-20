@@ -37,6 +37,7 @@ $(document).ready(function () {
             to: result[i].to,
             price: result[i].price,
             id: result[i]._id,
+            flightCode: result[i].flightCode,
           };
 
           $('.from').text(data.from);
@@ -58,7 +59,7 @@ $(document).ready(function () {
                         <span>-</span>
                         <p class="to">8:45</p>
                     </div>
-                    <p class="flight-id"><i class="fas fa-plane"></i> 6EABC</p>
+                    <p class="flight-id"><i class="fas fa-plane"></i>${data.flightCode}</p>
                     <div class="duration">${data.duration}</div>
                     <div class="flight-details">
                         <p class="company-name">${data.company}</p>
