@@ -70,6 +70,7 @@ input[type=number] {
     outline: none;
     opacity: .7;
 }
+
 .form-input:focus{
     border: 1px solid #56CFE1;
     box-shadow: 0px 0px 5px #5E60CE;

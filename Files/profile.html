@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- LINKS -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/1da72926fa.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="../Public/css/navbar.css" />
+    <link rel="stylesheet" href="../Public/css/profile.css">
+    <link rel="stylesheet" href="../Public/css/forms.css">
+    <title>Profile</title>
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="navbar-links">
+          <li class="nav-item">
+            <a href="#" class="nav-link"
+              ><i class="fas fa-plane-departure"></i
+            ></a>
+            <p class="nav-identifier">Flights</p>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link"><i class="fas fa-passport"></i></a>
+            <p class="nav-identifier">Travel<br />History</p>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link"><i class="fas fa-rupee-sign"></i></a>
+            <p class="nav-identifier">Payments</p>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link"><i class="fas fa-history"></i></a>
+            <p class="nav-identifier">Payment History</p>
+          </li>
+        </ul>
+        <div class="profile">
+          <a href="#" class="profile-link"><i class="fas fa-user-circle"></i></a>
+          <p class="profile-identifier">Profile</p>
+        </div>
+        <div class="popup">
+          <div class="popup-item">View Profile</div>
+          <div class="popup-item">Logout</div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="user">
+            <div class="user-head">
+                <div class="user-img">
+                    <!-- <div class="edit-img">
+                        <span><i class="fas fa-camera"></i></span>
+                    </div> -->
+                    <img src="../Public/assets/user.jpg" alt="">
+                </div>
+                <div class="user-header">
+                    <p class="user-name">Kai Havertz</p>
+                    <p class="user-location">Leverkusen, Germany</p>
+                </div>
+            </div>
+            <div class="user-details">
+                <form action="/" method="POST" class="form-profile">
+                    <div class="group-inputs">
+                        <div class="user-fields">
+                            <label for="fname">First Name</label>
+                            <input type="text" name="fname" id="fname" class="form-input" placeholder="Kai" autocomplete="off" disabled>
+                        </div>
+                        <div class="user-fields">
+                            <label for="lname">Last Name</label>
+                            <input type="text" name="lname" id="lname" class="form-input" placeholder="Havertz" autocomplete="off" disabled>
+                        </div>
+                    </div>
+                    <div class="group-inputs">
+                        <div class="user-fields">
+                            <label for="nationality">Nationality</label>
+                            <input type="text" name="nationality" class="form-input" id="nationality" placeholder="German" disabled>
+                        </div>
+                        <div class="user-fields">
+                            <label>Date of Birth</label>
+                            <input type="date" name="dob" class="form-input" id="input-date" placeholder="04/08/2001" disabled>
+                        </div>
+                    </div>
+                    <div class="group-inputs">
+                        <div class="user-fields">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" id="email" class="form-input" placeholder="kai29@hotmail.com" autocomplete="off" disabled>
+                        </div>
+                        <div class="user-fields">
+                            <label for="phone">Phone</label>
+                            <input type="number" name="phone" id="phone" class="form-input" placeholder="9742071930" autocomplete="off" disabled>
+                        </div>
+                    </div>
+                    <div class="form-cta"><a href="#">Change password</a></div>
+                    <button class="btn-submit">Edit Profile</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script src="../Public/js/navbar.js"></script>
+</body>
+</html>
