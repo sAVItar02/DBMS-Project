@@ -6,7 +6,6 @@ $(document).ready(function () {
   toInputValue = sessionStorage.getItem('toInputValue');
 
   const api = `https://dbms-flights-project.herokuapp.com/flights?from=${fromInputValue}&to=${toInputValue}`;
-  // const api = `https://jsonplaceholder.typicode.com/todos/1`;
 
   var myHeaders = new Headers();
   myHeaders.append('Content-Type', 'application/json');

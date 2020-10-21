@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const app = require('./app.js');
+app.use(require('cors')());
 
 const DB =
   'mongodb+srv://DBMS-ADMIN:gTeGI8PpzwpuE2UG@cluster-flights.3h8gc.mongodb.net/Flights?retryWrites=true&w=majority';
