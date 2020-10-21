@@ -1,238 +1,239 @@
-html{
-    font-size: 62.5%;
+html {
+  font-size: 62.5%;
 }
-body{
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    min-height: fit-content;
-    width: 100vw;
-    font-family: 'Montserrat', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    overflow-x: hidden;
-    box-sizing: border-box;
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  min-height: fit-content;
+  width: 100vw;
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
-input[type="date"]:before {
-    content: attr(placeholder) !important;
-    margin-right: 3.7em;
-    font-family: 'Montserrat', sans-serif;
-  }
-  input[type="date"]:focus:before,
-  input[type="date"]:valid:before {
-    content: "";
+input[type='date']:before {
+  content: attr(placeholder) !important;
+  margin-right: 3.7em;
+  font-family: 'Montserrat', sans-serif;
+}
+input[type='date']:focus:before,
+input[type='date']:valid:before {
+  content: '';
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-input[type=number] {
-    -moz-appearance: textfield;
+input[type='number'] {
+  -moz-appearance: textfield;
 }
 ::placeholder {
-    font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
-.form-buffer{
-    text-align: center;
-    padding: 5rem 4rem;
-    border: 1px solid lightgray;
-    border-radius: 3px;
+.form-buffer {
+  text-align: center;
+  padding: 5rem 4rem;
+  border: 1px solid lightgray;
+  border-radius: 3px;
 }
-.form-buffer p{
-    font-size: 1.5rem;
+.form-buffer p {
+  font-size: 1.5rem;
 }
-.form-buffer  a{
-    margin-bottom: 50px;
-    text-decoration: none;
-    color: #5E60CE;
+.form-buffer a {
+  margin-bottom: 50px;
+  text-decoration: none;
+  color: #5e60ce;
 }
-.form-buffer .logo{
-    font-size: 3rem;
+.form-buffer .logo {
+  font-size: 3rem;
 }
-.form-login{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 2.5rem;
-    padding-top: 4rem;
-    border-top: 1px solid lightgray;
+.form-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 2.5rem;
+  padding-top: 4rem;
+  border-top: 1px solid lightgray;
 }
-.form-input{
-    padding: 1rem;
-    margin-bottom: 2rem;
-    font-size: 2rem;
-    border: 1px solid lightgray;
-    border-radius: 3px;
-    outline: none;
-    opacity: .7;
+.form-input {
+  padding: 1rem;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  border: 1px solid lightgray;
+  border-radius: 3px;
+  outline: none;
+  opacity: 0.7;
 }
 
-.form-input:focus{
-    border: 1px solid #56CFE1;
-    box-shadow: 0px 0px 5px #5E60CE;
+.form-input:focus {
+  border: 1px solid #56cfe1;
+  box-shadow: 0px 0px 5px #5e60ce;
 }
-.group-inputs input:nth-of-type(2n+1){
-    margin-right: 1rem;
+.group-inputs input:nth-of-type(2n + 1) {
+  margin-right: 1rem;
 }
-#input-date{
-    width: 25.25rem;
-    color: gray;
-    opacity: .7;
+#input-date {
+  width: 25.25rem;
+  color: gray;
+  opacity: 0.7;
 }
-.btn-submit{
-    padding: 1rem 2rem;
-    font-size: 2rem;
-    font-family: inherit;
-    margin-bottom: 1rem;
-    outline: none;
-    border: none;
-    background-color: #5E60CE;
-    color: white;
-    border-radius: 3px;
-    cursor: pointer;
+.btn-submit {
+  padding: 1rem 2rem;
+  font-size: 2rem;
+  font-family: inherit;
+  margin-bottom: 1rem;
+  outline: none;
+  border: none;
+  background-color: #5e60ce;
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
 }
-.btn-submit:hover{
-    background-color: rgb(79, 82, 206);
+.btn-submit:hover {
+  background-color: rgb(79, 82, 206);
 }
-select{
-    font-size: 2rem;
-    width: 27.3rem;
-    height: 4rem;
-    outline: none;
-    border: 1px solid lightgray;
-    border-radius: 3px;
-    margin-bottom: 2rem;
-    padding-left: .6rem;
-    color: gray;
-    opacity: 0.7;
-    font-family: 'Montserrat', sans-serif;
+select {
+  font-size: 2rem;
+  width: 27.3rem;
+  height: 4rem;
+  outline: none;
+  border: 1px solid lightgray;
+  border-radius: 3px;
+  margin-bottom: 2rem;
+  padding-left: 0.6rem;
+  color: gray;
+  opacity: 0.7;
+  font-family: 'Montserrat', sans-serif;
 }
-.adjust{
-    height: 5rem;
+.adjust {
+  height: 5rem;
 }
-#signup{
-    margin-top: 5rem;
-    padding: 5rem 4rem;
+#signup {
+  margin-top: 5rem;
+  padding: 5rem 4rem;
 }
-.circle-lg{
-    width: 11rem;
-    height: 11rem;
-    border-radius: 50rem;
-    background-color: #FA2C7E;
-    position: absolute;
+.circle-lg {
+  width: 11rem;
+  height: 11rem;
+  border-radius: 50rem;
+  background-color: #fa2c7e;
+  position: absolute;
+  top: 15%;
+  left: 10%;
+  animation: custom-animation2 7s 1s infinite ease-in-out;
+}
+.circle-md {
+  width: 9rem;
+  height: 9rem;
+  border-radius: 50rem;
+  background-color: #54d2e0;
+  position: absolute;
+  top: 70%;
+  right: 15%;
+  animation: custom-animation1 6s infinite ease-in-out;
+}
+.circle-sm,
+.circle-sm-bordered {
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50rem;
+  background-color: #6dd8bb;
+  position: absolute;
+  top: 10%;
+  right: 15%;
+  animation: custom-animation3 7s 1s infinite ease-in-out;
+}
+.circle-sm-bordered {
+  background-color: #ffffff;
+  border: 15px solid #6dd8bb;
+  position: absolute;
+  top: 70%;
+  left: 10%;
+  animation: custom-animation4 8s infinite ease-in-out;
+}
+.rectangle-lg {
+  width: 40rem;
+  height: 2.5rem;
+  background-color: #4ea8de;
+  transform: rotate(135deg);
+  position: absolute;
+  top: 60%;
+  left: -15%;
+  animation: custom-animation5 8s infinite ease-in-out;
+}
+.rectangle-sm {
+  width: 25rem;
+  height: 1.5rem;
+  background-color: #5e60ce;
+  transform: rotate(135deg);
+  position: absolute;
+  top: 50%;
+  right: -5%;
+  animation: custom-animation6 8s infinite ease-in-out;
+}
+@keyframes custom-animation1 {
+  50% {
+    top: 75%;
+    right: 10%;
+  }
+  100% {
+    top: 70%;
+    right: 15%;
+  }
+}
+@keyframes custom-animation2 {
+  50% {
+    top: 20%;
+    left: 15%;
+  }
+  100% {
     top: 15%;
     left: 10%;
-    animation: custom-animation2 7s 1s infinite ease-in-out;
+  }
 }
-.circle-md{
-    width: 9rem;
-    height: 9rem;
-    border-radius: 50rem;
-    background-color: #54D2E0;
-    position: absolute;
-    top: 70%;
-    right: 15%;
-    animation: custom-animation1 6s infinite ease-in-out;
-}
-.circle-sm, .circle-sm-bordered{
-    width: 7rem;
-    height: 7rem;
-    border-radius: 50rem;
-    background-color: #6DD8BB;
-    position: absolute;
+@keyframes custom-animation3 {
+  50% {
+    top: 15%;
+    right: 10%;
+  }
+  100% {
     top: 10%;
     right: 15%;
-    animation: custom-animation3 7s 1s infinite ease-in-out;
+  }
 }
-.circle-sm-bordered{
-    background-color: #ffffff;
-    border: 15px solid #6DD8BB;
-    position: absolute;
+@keyframes custom-animation4 {
+  50% {
+    top: 75%;
+    left: 15%;
+  }
+  100% {
     top: 70%;
     left: 10%;
-    animation: custom-animation4 8s infinite ease-in-out;
+  }
 }
-.rectangle-lg{
-    width: 40rem;
-    height: 2.5rem;
-    background-color: #4EA8DE;
-    transform: rotate(135deg);
-    position: absolute;
+@keyframes custom-animation5 {
+  50% {
+    top: 60%;
+    left: -17%;
+  }
+  100% {
     top: 60%;
     left: -15%;
-    animation: custom-animation5 8s infinite ease-in-out;
+  }
 }
-.rectangle-sm{
-    width: 25rem;
-    height: 1.5rem;
-    background-color: #5E60CE;
-    transform: rotate(135deg);
-    position: absolute;
+@keyframes custom-animation6 {
+  50% {
+    top: 45%;
+    right: -2.5%;
+  }
+  100% {
     top: 50%;
     right: -5%;
-    animation: custom-animation6 8s infinite ease-in-out;
-}
-@keyframes custom-animation1{
-    50%{
-        top: 75%;
-        right: 10%;
-    }
-    100%{
-        top: 70%;
-        right: 15%;
-    }
-}
-@keyframes custom-animation2{
-    50%{
-        top: 20%;
-        left: 15%;
-    }
-    100%{
-        top: 15%;
-        left: 10%;
-    }
-}
-@keyframes custom-animation3{
-    50%{
-        top: 15%;
-        right: 10%;
-    }
-    100%{
-        top: 10%;
-        right: 15%;
-    }
-}
-@keyframes custom-animation4{
-    50%{
-        top: 75%;
-        left: 15%;
-    }
-    100%{
-        top: 70%;
-        left: 10%;
-    }
-}
-@keyframes custom-animation5{
-    50%{
-        top: 60%;
-        left: -17%;
-    }
-    100%{
-        top: 60%;
-        left: -15%;
-    }
-}
-@keyframes custom-animation6{
-    50%{
-        top: 45%;
-        right: -2.5%;
-    }
-    100%{
-        top: 50%;
-        right: -5%;
-    }
+  }
 }
