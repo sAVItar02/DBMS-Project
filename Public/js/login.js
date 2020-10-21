@@ -1,3 +1,5 @@
+const { response } = require('express');
+
 let signUp = $('#signup');
 let logIn = $('#login');
 let toLogIn = $('#tologin');
@@ -20,6 +22,7 @@ toSignUp.on('click', function (e) {
 });
 
 const apiSignup = `https://dbms-flights-project.herokuapp.com/user/signup`;
+const apiLogin = `https://dbms-flights-project.herokuapp.com/user/login`;
 
 const fName = $('#f-name');
 const lName = $('#l-name');
@@ -58,7 +61,35 @@ registerBtn.on('click', (e) => {
     .then((response) => response.json())
     .then((result) => {
       console.log(result);
-      sessionStorage.setItem('authToken', result.token[0].token);
-      window.location.href('./startup.html');
+      sessionStorage.setItem('authToken', result.token);
+      window.location.href = './startup.html';
+    });
+});
+
+loginBtn.on('click', (e) => {
+  e.preventDefault();
+
+  var myHeaders = new Headers();
+  myHeaders.append('Content-Type', 'application/json');
+
+  const data = {
+    email: $('#login-email').val(),
+    password: $('#login-password').val(),
+  };
+
+  var json = JSON.stringify(data);
+
+  let requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: json,
+  };
+
+  fetch(apiLogin, requestOptions)
+    .then((response) => response.json())
+    .then((result) => {
+      console.log(result);
+      sessionStorage.setItem('authToken', result.token);
+      window.location.href = './startup.html';
     });
 });
