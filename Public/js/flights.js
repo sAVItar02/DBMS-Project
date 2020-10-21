@@ -7,14 +7,19 @@ $(document).ready(function () {
 
   const api = `https://dbms-flights-project.herokuapp.com/flights?from=${fromInputValue}&to=${toInputValue}`;
 
-  var myHeaders = new Headers();
-  myHeaders.append('Content-Type', 'application/json');
+  // var myHeaders = new Headers();
+  // myHeaders.append('Content-Type', 'application/json');
+  // myHeaders.append("Access-Control-Allow-Origin": "*")
 
   // var json = JSON.stringify(data);
 
   var requestOptions = {
     method: 'GET',
     redirect: 'follow',
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Content-Type': 'application/json',
+    },
   };
 
   function GetSpecificFlights() {
