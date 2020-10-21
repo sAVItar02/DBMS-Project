@@ -5,7 +5,6 @@ const flightRouter = require('./routes/flights');
 const userRouter = require('./routes/login');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
 
 app.use(require('cors')());
 
@@ -18,8 +17,4 @@ app.use(methodOverride('_method'));
 app.use(flightRouter);
 app.use(userRouter);
 
-app.listen(PORT, function () {
-  console.log(`App running on port ${PORT}...`);
-});
-
-// module.exports = app;
+module.exports = app;
