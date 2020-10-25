@@ -32,6 +32,9 @@ router.post('/user/login', async (req, res) => {
 });
 
 router.get('/profile', auth, async (req, res) => {
+  if (!req.user) {
+    res.send('LOGIN');
+  }
   res.send(req.user);
 });
 

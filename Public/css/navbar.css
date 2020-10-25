@@ -1,4 +1,4 @@
-.navbar{
+.navbar {
   width: 10rem;
   position: fixed;
   left: 0;
@@ -12,15 +12,15 @@
   justify-content: center;
   flex-direction: column;
 }
-  
-  
-.navbar-links{
+
+.navbar-links {
   height: 100%;
   width: 100%;
-  list-style: none;  
+  list-style: none;
 }
 
-.nav-item, .profile{
+.nav-item,
+.profile {
   width: 100%;
   font-size: 2.5rem;
   text-align: center;
@@ -29,16 +29,19 @@
   cursor: pointer;
   transition: 0.1s linear;
 }
-  
-.nav-item:hover, .profile:hover {
+
+.nav-item:hover,
+.profile:hover {
   transform: scale(1.1);
 }
-  
-.nav-link, .profile-link {
-  color: #5E60CE;
+
+.nav-link,
+.profile-link {
+  color: #5e60ce;
 }
-  
-.nav-identifier, .profile-identifier {
+
+.nav-identifier,
+.profile-identifier {
   font-size: 1.3rem;
   font-weight: 500;
   padding-top: 0.5rem;
@@ -52,20 +55,25 @@
   height: 9rem;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  text-decoration: none;
 }
-  
+
+.popup a {
+  text-decoration: none;
+  color: #000;
+}
+
 .popup-item {
   font-size: 1.6rem;
   text-align: center;
-  border-bottom: 1px solid #E6ECF0;
+  border-bottom: 1px solid #e6ecf0;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 50%;
   cursor: pointer;
 }
-  
+
 .popup-item:hover {
   background-color: #cae1f1;
 }
-  

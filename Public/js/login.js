@@ -1,5 +1,3 @@
-const { response } = require('express');
-
 let signUp = $('#signup');
 let logIn = $('#login');
 let toLogIn = $('#tologin');
