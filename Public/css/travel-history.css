@@ -1,0 +1,38 @@
+.card-buffer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 2rem;
+  column-gap: 2rem;
+}
+
+.card {
+  margin-bottom: 0;
+}
+
+.from,
+.to {
+  font-size: 3rem;
+  display: inline-block;
+  font-weight: 600;
+  padding-top: 1rem;
+  padding-left: 2rem;
+}
+
+.card > span {
+  font-size: 3rem;
+  padding-left: 2rem;
+}
+
+.date,
+.flight-code {
+  font-size: 2rem;
+  padding-left: 2rem;
+  padding-top: 1rem;
+  display: inline-block;
+}
+
+.flight-code {
+  font-size: 3rem;
+  color: #5e60ce;
+  font-weight: 500;
+}

@@ -19,8 +19,9 @@ toSignUp.on('click', function (e) {
   signUp.show();
 });
 
-const apiSignup = `https://dbms-flights-project.herokuapp.com/user/signup`;
-const apiLogin = `https://dbms-flights-project.herokuapp.com/user/login`;
+const apiSignup = `https://dbms-flights-project2.herokuapp.com/user/signup`;
+const apiLogin = `https://dbms-flights-project2.herokuapp.com/user/login`;
+// const apiLogin = `http://localhost:3000/user/login`;
 
 const fName = $('#f-name');
 const lName = $('#l-name');
@@ -86,7 +87,6 @@ loginBtn.on('click', (e) => {
   fetch(apiLogin, requestOptions)
     .then((response) => response.json())
     .then((result) => {
-      console.log(result);
       sessionStorage.setItem('authToken', result.token);
       window.location.href = './startup.html';
     });

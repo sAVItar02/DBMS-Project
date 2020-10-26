@@ -5,7 +5,7 @@ $(document).ready(function () {
   fromInputValue = sessionStorage.getItem('fromInputValue');
   toInputValue = sessionStorage.getItem('toInputValue');
 
-  const api = `https://dbms-flights-project.herokuapp.com/flights?from=${fromInputValue}&to=${toInputValue}`;
+  const api = `https://dbms-flights-project2.herokuapp.com/flights?from=${fromInputValue}&to=${toInputValue}`;
   // const api = `http://localhost:3000/flights?from=${fromInputValue}&to=${toInputValue}`;
 
   // var myHeaders = new Headers();
