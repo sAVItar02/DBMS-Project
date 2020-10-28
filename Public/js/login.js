@@ -6,6 +6,7 @@ const loginBtn = $('#btn-login');
 const registerBtn = $('#btn-register');
 
 signUp.hide();
+$('.loader').hide();
 
 toLogIn.on('click', function (e) {
   e.preventDefault();
@@ -87,7 +88,11 @@ loginBtn.on('click', (e) => {
   fetch(apiLogin, requestOptions)
     .then((response) => response.json())
     .then((result) => {
+      $('.loader').show();
+      $('.container').hide();
       sessionStorage.setItem('authToken', result.token);
+      $('.loader').hide();
+      $('.container').show();
       window.location.href = './startup.html';
     });
 });

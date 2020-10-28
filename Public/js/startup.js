@@ -1,3 +1,5 @@
+$('.loader').hide();
+
 $(document).ready(function () {
   let fromInput = $('#from');
   let toInput = $('#to');

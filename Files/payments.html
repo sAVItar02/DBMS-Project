@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../Public/css/navbar.css">
     <link rel="stylesheet" href="../Public/css/flights.css">
     <link rel="stylesheet" href="../Public/css/general-history.css">
+    <link rel="stylesheet" href="../Public/css/loader.css">
     <script src="https://kit.fontawesome.com/1da72926fa.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
@@ -17,7 +18,11 @@
     <nav class="navbar">
         <ul class="navbar-links">
             <li class="nav-item">
-                <a href="#" class="nav-link"><i class="fas fa-plane-departure"></i></a>
+                <a href="./startup.html" class="nav-link"><i class="fas fa-search"></i></a>
+                <p class="nav-identifier">Search</p>
+            </li>
+            <li class="nav-item">
+                <a href="./flights.html" class="nav-link"><i class="fas fa-plane-departure"></i></a>
                 <p class="nav-identifier">Flights</p>
             </li>
             <li class="nav-item">
@@ -28,10 +33,6 @@
                 <a href="./payments.html" class="nav-link"><i class="fas fa-rupee-sign"></i></a>
                 <p class="nav-identifier">Payments</p>
             </li>
-            <li class="nav-item">
-                <a href="./payments.html" class="nav-link"><i class="fas fa-history"></i></a>
-                <p class="nav-identifier">Payment History</p>
-            </li>
         </ul>
 
         <div class="profile">
@@ -40,7 +41,7 @@
         </div>
         <div class="popup">
             <a href="./profile.html"><div class="popup-item">View Profile</div></a>
-            <div class="popup-item">Logout</div>
+            <div class="popup-item logout">Logout</div>
         </div>
     </nav>
 
@@ -48,16 +49,16 @@
         <h1>
             Here's the list of all your payments.
         </h1>
-        <div class="card-buffer">
-            <div class="card card-hover">
-                <div class="payed-on">
-                    Amount <span class="payment-price">xxxx</span> payed on <span class="payment-date">20-11-20</span>
-                </div>
-                <div class="payment-company">Company: Air Asia</div>
-                <div class="payment-from">Bangalore <span>&rarr;</span> Chennai</div>
-            </div>
-        </div>
+        <div class="card-buffer"></div>
     </section>
+    <section class="not-logged-in">
+        <h1>Aww Snap! You're not logged in</h1>
+        <a href="./login.html" class="login-now">Login?</a>
+    </section>
+
+    <div class="loader-container">
+        <div class="loader"></div>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
     <script src="../Public/js/navbar.js"></script>

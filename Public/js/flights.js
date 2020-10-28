@@ -1,11 +1,15 @@
 $('.card-popup').hide();
 $('.overlay').hide();
+$('.loader').hide();
+
+let api = ``;
 
 $(document).ready(function () {
   fromInputValue = sessionStorage.getItem('fromInputValue');
   toInputValue = sessionStorage.getItem('toInputValue');
 
-  const api = `https://dbms-flights-project2.herokuapp.com/flights?from=${fromInputValue}&to=${toInputValue}`;
+  // console.log(api);
+
   // const api = `http://localhost:3000/flights?from=${fromInputValue}&to=${toInputValue}`;
 
   // var myHeaders = new Headers();
@@ -24,9 +28,16 @@ $(document).ready(function () {
   };
 
   function GetSpecificFlights() {
+    if (fromInputValue == null && toInputValue == null) {
+      api = `https://dbms-flights-project2.herokuapp.com/flights`;
+    } else {
+      api = `https://dbms-flights-project2.herokuapp.com/flights?from=${fromInputValue}&to=${toInputValue}`;
+    }
     fetch(api, requestOptions)
       .then((response) => response.json())
       .then((result) => {
+        $('.loader').show();
+        $('.container').hide();
         console.log(result);
         let output = ``;
 
@@ -109,6 +120,9 @@ $(document).ready(function () {
                 </div> 
             </div>`;
         }
+
+        $('.loader').hide();
+        $('.container').show();
 
         $('.card-buffer').empty();
         $('.card-buffer').html(output);

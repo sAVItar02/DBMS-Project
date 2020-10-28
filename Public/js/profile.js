@@ -1,4 +1,5 @@
 $('.not-logged-in').hide();
+$('.loader').hide();
 
 const api = `https://dbms-flights-project2.herokuapp.com/profile`;
 
@@ -16,10 +17,12 @@ function LoadProfile() {
     $('.user').hide();
     $('.not-logged-in').show();
   } else {
-    console.log(sessionStorage.getItem('authToken'));
     fetch(api, requestOptions)
       .then((response) => response.json())
       .then((result) => {
+        $('.loader').show();
+        $('.container').hide();
+
         if (result.gender == 'm') {
           $('.pfp').attr('src', '../Public/assets/male_avatar.svg');
         } else {
@@ -39,6 +42,8 @@ function LoadProfile() {
         console.log(splitDate[0].substring(2, splitDate[0].length));
         $('#email').attr('placeholder', `${result.email}`);
         $('#phone').attr('placeholder', `${result.phone}`);
+        $('.loader').hide();
+        $('.container').show();
       });
   }
 }

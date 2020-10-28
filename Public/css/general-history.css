@@ -39,7 +39,7 @@
 
 .payed-on {
   padding: 1rem;
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 500;
 }
 
@@ -54,9 +54,30 @@
   padding-left: 1rem;
   padding-top: 1rem;
   display: inline-block;
+  text-transform: capitalize;
 }
 
 .payment-price,
 .payment-date {
   color: #5e60ce;
+}
+
+.not-logged-in {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.not-logged-in h1 {
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 3rem;
+}
+
+.login-now {
+  text-decoration: none;
+  font-size: 2rem;
+  padding: 2rem;
 }
