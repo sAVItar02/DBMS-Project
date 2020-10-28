@@ -27,39 +27,58 @@ $(document).ready(function () {
     },
   };
 
-  function GetSpecificFlights() {
-    if (fromInputValue == null && toInputValue == null) {
-      api = `https://dbms-flights-project2.herokuapp.com/flights`;
-    } else {
-      api = `https://dbms-flights-project2.herokuapp.com/flights?from=${fromInputValue}&to=${toInputValue}`;
-    }
+  function GetSpecificFlights(api) {
     fetch(api, requestOptions)
       .then((response) => response.json())
       .then((result) => {
         $('.loader').show();
         $('.container').hide();
         console.log(result);
-        let output = ``;
+        $('.from').text(sessionStorage.getItem('fromInputValue'));
+        $('.to').text(sessionStorage.getItem('toInputValue'));
+        CreateCard(result);
+      });
+  }
 
-        for (i = 0; i < result.length; i++) {
-          const data = {
-            arrTime: result[i].arrTime,
-            depTime: result[i].depTime,
-            cabinWeight: result[i].cabinWeight,
-            checkinWeight: result[i].checkinWeight,
-            company: result[i].company,
-            duration: result[i].duration,
-            from: result[i].from,
-            to: result[i].to,
-            price: result[i].price,
-            id: result[i]._id,
-            flightCode: result[i].flightCode,
-          };
+  function GetAllFlights(api) {
+    fetch(api, requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        $('.loader').show();
+        $('.container').hide();
+        console.log(result);
+        $('.main-head').text('Showing all available flights');
+        CreateCard(result);
+      });
+  }
 
-          $('.from').text(data.from);
-          $('.to').text(data.to);
+  if (fromInputValue == null && toInputValue == null) {
+    api = `https://dbms-flights-project2.herokuapp.com/flights`;
+    GetAllFlights(api);
+  } else {
+    api = `https://dbms-flights-project2.herokuapp.com/flights?from=${fromInputValue}&to=${toInputValue}`;
+    GetSpecificFlights(api);
+  }
 
-          output += `<div class="card card-hover">
+  function CreateCard(result) {
+    let output = ``;
+
+    for (i = 0; i < result.length; i++) {
+      const data = {
+        arrTime: result[i].arrTime,
+        depTime: result[i].depTime,
+        cabinWeight: result[i].cabinWeight,
+        checkinWeight: result[i].checkinWeight,
+        company: result[i].company,
+        duration: result[i].duration,
+        from: result[i].from,
+        to: result[i].to,
+        price: result[i].price,
+        id: result[i]._id,
+        flightCode: result[i].flightCode,
+      };
+
+      output += `<div class="card card-hover">
                 <div class="card-header">
                     <div class="card-tag">Timings</div>
                     <div class="card-tag">Flight ID</div>
@@ -119,39 +138,36 @@ $(document).ready(function () {
                     </div>
                 </div> 
             </div>`;
-        }
+    }
 
-        $('.loader').hide();
-        $('.container').show();
+    $('.loader').hide();
+    $('.container').show();
 
-        $('.card-buffer').empty();
-        $('.card-buffer').html(output);
+    $('.card-buffer').empty();
+    $('.card-buffer').html(output);
 
+    $('.card-popup').hide();
+    $('.overlay').hide();
+
+    $('.details').on('click', function (e) {
+      e.preventDefault();
+      $(this).parent().parent().parent().children('.card-popup').show();
+      $('.overlay').show();
+      $(this).parent().parent().parent().removeClass('card-hover');
+
+      $('.close').on('click', (e) => {
+        e.preventDefault();
         $('.card-popup').hide();
         $('.overlay').hide();
-
-        $('.details').on('click', function (e) {
-          e.preventDefault();
-          $(this).parent().parent().parent().children('.card-popup').show();
-          $('.overlay').show();
-          $(this).parent().parent().parent().removeClass('card-hover');
-
-          $('.close').on('click', (e) => {
-            e.preventDefault();
-            $('.card-popup').hide();
-            $('.overlay').hide();
-            $(this).parent().parent().parent().addClass('card-hover');
-          });
-        });
-        $('.card').on('click', function (e) {
-          e.preventDefault();
-          const currentFlightID = $(this)
-            .children('.card-details')
-            .children('.hide')
-            .text();
-        });
+        $(this).parent().parent().parent().addClass('card-hover');
       });
+    });
+    $('.card').on('click', function (e) {
+      e.preventDefault();
+      const currentFlightID = $(this)
+        .children('.card-details')
+        .children('.hide')
+        .text();
+    });
   }
-
-  GetSpecificFlights();
 });

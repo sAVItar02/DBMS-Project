@@ -94,5 +94,8 @@ loginBtn.on('click', (e) => {
       $('.loader').hide();
       $('.container').show();
       window.location.href = './startup.html';
+    })
+    .catch((e) => {
+      console.log(e);
     });
 });
