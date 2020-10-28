@@ -60,9 +60,11 @@ router.get('/paymentHistory', auth, async (req, res) => {
     Flights.find({ _id: flight.flight })
       .then((flight) => {
         myObj = {
-          flightCode: flight[0].flightCode,
+          company: flight[0].company,
           price: flight[0].price,
           depTime: flight[0].depTime,
+          from: flight[0].from,
+          to: flight[0].to,
         };
         allPayments.push(myObj);
         if (req.user.flights.length - 1 == index) {

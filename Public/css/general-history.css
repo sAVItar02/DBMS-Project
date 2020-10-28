@@ -36,3 +36,27 @@
   color: #5e60ce;
   font-weight: 500;
 }
+
+.payed-on {
+  padding: 1rem;
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+
+.payment-company {
+  padding-left: 1rem;
+  font-size: 1.6rem;
+}
+
+.payment-from,
+.payment-to {
+  font-size: 1.6rem;
+  padding-left: 1rem;
+  padding-top: 1rem;
+  display: inline-block;
+}
+
+.payment-price,
+.payment-date {
+  color: #5e60ce;
+}
