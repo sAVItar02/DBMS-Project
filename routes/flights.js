@@ -8,11 +8,11 @@ const router = new express.Router();
 
 router.get('/flights', async function (req, res) {
   const { from, to } = req.query;
-  const flights = await Flight.find()
-    .where('from')
-    .equals(from.toLowerCase())
-    .where('to')
-    .equals(to.toLowerCase());
+  const flights = await Flight.find(req.query);
+  // .where('from')
+  // .equals(from.toLowerCase())
+  // .where('to')
+  // .equals(to.toLowerCase());
   res.send(flights);
 });
 
