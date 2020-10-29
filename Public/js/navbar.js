@@ -1,5 +1,14 @@
 $('.popup').hide();
 
+// AOS
+(function ($) {
+  "use strict";
+
+  // AOS Init
+  AOS.init();
+
+})(jQuery);
+
 $(document).ready(function () {
   $('.profile').hover(
     (e) => {
