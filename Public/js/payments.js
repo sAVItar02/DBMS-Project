@@ -37,6 +37,11 @@ function GetPayments() {
             .split('T')[0]
             .substring(2, data.date.split('T')[0].length);
 
+          // const dateNew = new Date();
+          // let currentDate = `${dateNew.getDate()}-${
+          //   dateNew.getMonth() + 1
+          // }-${dateNew.getFullYear()}`;
+
           output += `<div class="card card-hover">
             <div class="payed-on">
                 Amount <span class="payment-price">${data.price} ₹</span> paid on <span class="payment-date">${dateNew}</span>

@@ -24,8 +24,8 @@ const apiSignup = `https://dbms-flights-project2.herokuapp.com/user/signup`;
 const apiLogin = `https://dbms-flights-project2.herokuapp.com/user/login`;
 // const apiLogin = `http://localhost:3000/user/login`;
 
-const fName = $('#f-name');
-const lName = $('#l-name');
+const fName = $('#fname');
+const lName = $('#lname');
 const dob = $('#input-date');
 const gender = $('#gender');
 const mail = $('#email');
@@ -34,16 +34,6 @@ const password = $('#password');
 
 registerBtn.on('click', (e) => {
   e.preventDefault();
-
-  $('#signup')
-    .children('input')
-    .each(function () {
-      console.log($(this));
-      if ($(this).val() == '') {
-        console.log('fill everything');
-        return;
-      }
-    });
 
   var myHeaders = new Headers();
   myHeaders.append('Content-Type', 'application/json');
@@ -70,9 +60,19 @@ registerBtn.on('click', (e) => {
   fetch(apiSignup, requestOptions)
     .then((response) => response.json())
     .then((result) => {
-      console.log(result);
-      sessionStorage.setItem('authToken', result.token);
-      // window.location.href = './startup.html';
+      if (result.errors) {
+        $('input').css('border', '1px solid lightgray');
+        Object.keys(result.errors).forEach((e) => {
+          $('.error').text('Please fill out these fields!');
+          $(`#${e}`).css('border', '1px solid red');
+          $('#confirm-password').css('border', '1px solid red');
+        });
+      } else if ($('#password').val() != $('#confirm-password').val()) {
+        $('.error').text('Passwords do not match!');
+      } else {
+        sessionStorage.setItem('authToken', result.token);
+        window.location.href = './startup.html';
+      }
     });
 });
 

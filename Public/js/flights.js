@@ -8,16 +8,6 @@ $(document).ready(function () {
   fromInputValue = sessionStorage.getItem('fromInputValue');
   toInputValue = sessionStorage.getItem('toInputValue');
 
-  // console.log(api);
-
-  // const api = `http://localhost:3000/flights?from=${fromInputValue}&to=${toInputValue}`;
-
-  // var myHeaders = new Headers();
-  // myHeaders.append('Content-Type', 'application/json');
-  // myHeaders.append("Access-Control-Allow-Origin": "*")
-
-  // var json = JSON.stringify(data);
-
   var requestOptions = {
     method: 'GET',
     redirect: 'follow',
@@ -86,6 +76,7 @@ $(document).ready(function () {
                     <button class="cancel-button">Cancel</button>
                   </div>
                   <div class='booked'> Booked! </div>
+                  <div class='error'> Oops you're not logged in! <a href='./login.html'> Login? </a> </div>
                 <div class="card-header">
                     <div class="card-tag">Timings</div>
                     <div class="card-tag">Flight ID</div>
@@ -155,6 +146,7 @@ $(document).ready(function () {
 
     $('.confirm-booking').hide();
     $('.booked').hide();
+    $('.error').hide();
     $('.card-popup').hide();
     $('.overlay').hide();
 
@@ -192,8 +184,14 @@ $(document).ready(function () {
             .text();
 
           BookFlight(currentFlightID);
+
           $(this).parent().hide();
-          $(this).parent().parent().children('.booked').show();
+          if (!sessionStorage.getItem('authToken')) {
+            $(this).parent().parent().children('.error').show();
+            $(this).parent().parent().css('background-color', '#f37f5c');
+          } else {
+            $(this).parent().parent().children('.booked').show();
+          }
         });
 
         $('.cancel-button').on('click', function (e) {
