@@ -10,14 +10,14 @@ const auth = async (req, res, next) => {
       'tokens.token': token,
     });
     if (!user) {
-      throw new Error();
+      throw 'Not logged in!';
     }
 
     req.user = user;
     req.token = token;
     next();
   } catch (e) {
-    res.status(401).send('Not Logged in');
+    res.status(401).send({ message: e });
   }
 };
 
