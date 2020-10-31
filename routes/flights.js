@@ -26,24 +26,21 @@ router.post('/flights', async (req, res) => {
 });
 
 router.post('/book', auth, async (req, res) => {
-  var flightID = { flight: req.query.id };
-  await User.findOneAndUpdate(
-    { _id: req.user.id },
-    { $push: { flights: flightID } }
-  );
-  res.send(req.user);
-
-  // var bookedFlight = Travelhistory({
-  //   user: {
-  //     custID: req.user.id,
-  //     flights: [
-  //       {
-  //         flight: req.query.id,
-  //       },
-  //     ],
-  //   },
-  // });
-  // const f = await Travelhistory.create(bookedFlight);
+  try {
+    let flightID = { flight: req.query.id };
+    let flight = req.user.flights.forEach((flight) => {
+      if (flight.flight == req.query.id) {
+        throw 'Flight already booked';
+      }
+    });
+    await User.findOneAndUpdate(
+      { _id: req.user.id },
+      { $push: { flights: flightID } }
+    );
+    res.send(req.user);
+  } catch (e) {
+    res.status(400).send({ message: e });
+  }
 });
 
 module.exports = router;
