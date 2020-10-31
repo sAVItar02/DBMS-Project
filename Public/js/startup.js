@@ -14,11 +14,11 @@ $(document).ready(function () {
     const fromInputValue = fromInput.val();
     const toInputValue = toInput.val();
 
-    sessionStorage.setItem('fromInputValue', fromInputValue);
-    sessionStorage.setItem('toInputValue', toInputValue);
-
     if (!fromInputValue || !toInputValue) {
       e.preventDefault();
+    } else {
+      sessionStorage.setItem('fromInputValue', fromInputValue);
+      sessionStorage.setItem('toInputValue', toInputValue);
     }
   });
 });

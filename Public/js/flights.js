@@ -79,6 +79,13 @@ $(document).ready(function () {
       };
 
       output += `<div class="card card-hover">
+                  <button class="book">&rarr;</button>
+                  <div class="confirm-booking">
+                    <h1 class="confirm-header">Confirm Booking?</h1>
+                    <button class="confirm-button">Confirm</button>
+                    <button class="cancel-button">Cancel</button>
+                  </div>
+                  <div class='booked'> Booked! </div>
                 <div class="card-header">
                     <div class="card-tag">Timings</div>
                     <div class="card-tag">Flight ID</div>
@@ -146,6 +153,8 @@ $(document).ready(function () {
     $('.card-buffer').empty();
     $('.card-buffer').html(output);
 
+    $('.confirm-booking').hide();
+    $('.booked').hide();
     $('.card-popup').hide();
     $('.overlay').hide();
 
@@ -162,12 +171,59 @@ $(document).ready(function () {
         $(this).parent().parent().parent().addClass('card-hover');
       });
     });
-    $('.card').on('click', function (e) {
-      e.preventDefault();
-      const currentFlightID = $(this)
-        .children('.card-details')
-        .children('.hide')
-        .text();
-    });
+    $('.card')
+      .children('.book')
+      .on('click', function (e) {
+        e.preventDefault();
+        $(this).parent().children('.card-details').hide();
+        $(this).parent().children('.card-header').hide();
+        $(this).hide();
+        $(this).parent().children('.confirm-booking').show();
+        $(this).parent().css('background-color', '#5e60ce');
+
+        $('.confirm-button').on('click', function (e) {
+          e.preventDefault();
+
+          let currentFlightID = $(this)
+            .parent('.confirm-booking')
+            .parent('.card')
+            .children('.card-details')
+            .children('.hide')
+            .text();
+
+          BookFlight(currentFlightID);
+          $(this).parent().hide();
+          $(this).parent().parent().children('.booked').show();
+        });
+
+        $('.cancel-button').on('click', function (e) {
+          e.preventDefault();
+
+          $(this).parent().parent().children('.card-details').show();
+          $(this).parent().parent().children('.card-header').show();
+          $(this).parent().parent().children('.book').show();
+          $(this).parent().parent().css('background-color', '#fff');
+          $(this).parent().hide();
+        });
+      });
+  }
+
+  function BookFlight(id) {
+    const api = `https://dbms-flights-project2.herokuapp.com/book?id=${id}`;
+
+    let myHeaders = new Headers();
+    myHeaders.append('Content-Type', 'application/json');
+    myHeaders.append('Authorization', sessionStorage.getItem('authToken'));
+
+    let requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+    };
+
+    fetch(api, requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        return result;
+      });
   }
 });

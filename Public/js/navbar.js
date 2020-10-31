@@ -1,13 +1,13 @@
 $('.popup').hide();
 
 // AOS
-(function ($) {
-  "use strict";
+// (function ($) {
+//   "use strict";
 
-  // AOS Init
-  AOS.init();
+//   // AOS Init
+//   AOS.init();
 
-})(jQuery);
+// })(jQuery);
 
 $(document).ready(function () {
   $('.profile').hover(

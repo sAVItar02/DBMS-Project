@@ -39,7 +39,7 @@ function GetPayments() {
 
           output += `<div class="card card-hover">
             <div class="payed-on">
-                Amount <span class="payment-price">${data.price} ₹</span> payed on <span class="payment-date">${dateNew}</span>
+                Amount <span class="payment-price">${data.price} ₹</span> paid on <span class="payment-date">${dateNew}</span>
             </div>
             <div class="payment-company">Company: ${data.company}</div>
             <div class="payment-from">${data.from} <span>&rarr;</span> ${data.to}</div>
