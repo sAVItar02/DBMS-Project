@@ -177,6 +177,13 @@ select {
   right: -5%;
   animation: custom-animation6 8s infinite ease-in-out;
 }
+
+.error {
+  padding-bottom: 1rem;
+  color: rgb(250, 53, 53);
+  font-size: 1.4rem;
+}
+
 @keyframes custom-animation1 {
   50% {
     top: 75%;

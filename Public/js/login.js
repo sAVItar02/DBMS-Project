@@ -35,6 +35,16 @@ const password = $('#password');
 registerBtn.on('click', (e) => {
   e.preventDefault();
 
+  $('#signup')
+    .children('input')
+    .each(function () {
+      console.log($(this));
+      if ($(this).val() == '') {
+        console.log('fill everything');
+        return;
+      }
+    });
+
   var myHeaders = new Headers();
   myHeaders.append('Content-Type', 'application/json');
   const data = {
@@ -62,7 +72,7 @@ registerBtn.on('click', (e) => {
     .then((result) => {
       console.log(result);
       sessionStorage.setItem('authToken', result.token);
-      window.location.href = './startup.html';
+      // window.location.href = './startup.html';
     });
 });
 
@@ -88,12 +98,18 @@ loginBtn.on('click', (e) => {
   fetch(apiLogin, requestOptions)
     .then((response) => response.json())
     .then((result) => {
-      $('.loader').show();
-      $('.container').hide();
-      sessionStorage.setItem('authToken', result.token);
-      $('.loader').hide();
-      $('.container').show();
-      window.location.href = './startup.html';
+      if (result.message) {
+        $('.error').text(result.message);
+        $('#login-email').css('border', '1px solid red');
+        $('#login-password').css('border', '1px solid red');
+      } else {
+        $('.loader').show();
+        $('.container').hide();
+        sessionStorage.setItem('authToken', result.token);
+        $('.loader').hide();
+        $('.container').show();
+        window.location.href = './startup.html';
+      }
     })
     .catch((e) => {
       console.log(e);
