@@ -71,7 +71,7 @@ registerBtn.on('click', (e) => {
         $('.error').text('Passwords do not match!');
       } else {
         sessionStorage.setItem('authToken', result.token);
-        window.location.href = './startup.html';
+        window.location.href = './../../startup.html';
       }
     });
 });
@@ -108,7 +108,7 @@ loginBtn.on('click', (e) => {
         sessionStorage.setItem('authToken', result.token);
         $('.loader').hide();
         $('.container').show();
-        window.location.href = './startup.html';
+        window.location.href = './../../startup.html';
       }
     })
     .catch((e) => {
