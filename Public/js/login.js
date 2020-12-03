@@ -63,12 +63,12 @@ registerBtn.on('click', (e) => {
       if (result.errors) {
         $('input').css('border', '1px solid lightgray');
         Object.keys(result.errors).forEach((e) => {
-          $('.error').text('Please fill out these fields!');
+          $('.serror').text('Please fill out these fields!');
           $(`#${e}`).css('border', '1px solid red');
           $('#confirm-password').css('border', '1px solid red');
         });
       } else if ($('#password').val() != $('#confirm-password').val()) {
-        $('.error').text('Passwords do not match!');
+        $('.serror').text('Passwords do not match!');
       } else {
         sessionStorage.setItem('authToken', result.token);
         // window.location.href = '../startup.html';
