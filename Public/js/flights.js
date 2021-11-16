@@ -43,10 +43,10 @@ $(document).ready(function () {
   }
 
   if (fromInputValue == null && toInputValue == null) {
-    api = `https://dbms-flights-project2.herokuapp.com/flights`;
+    api = `https://dbms-flights-project.herokuapp.com/flights`;
     GetAllFlights(api);
   } else {
-    api = `https://dbms-flights-project2.herokuapp.com/flights?from=${fromInputValue}&to=${toInputValue}`;
+    api = `https://dbms-flights-project.herokuapp.com/flights?from=${fromInputValue}&to=${toInputValue}`;
     GetSpecificFlights(api);
   }
 
@@ -207,7 +207,7 @@ $(document).ready(function () {
   }
 
   function BookFlight(id) {
-    const api = `https://dbms-flights-project2.herokuapp.com/book?id=${id}`;
+    const api = `https://dbms-flights-project.herokuapp.com/book?id=${id}`;
 
     let myHeaders = new Headers();
     myHeaders.append('Content-Type', 'application/json');

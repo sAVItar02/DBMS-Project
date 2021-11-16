@@ -1,7 +1,7 @@
 $('.not-logged-in').hide();
 $('.loader-container').hide();
 
-const api = `https://dbms-flights-project2.herokuapp.com/paymentHistory`;
+const api = `https://dbms-flights-project.herokuapp.com/paymentHistory`;
 
 const myHeaders = new Headers();
 myHeaders.append('Authorization', sessionStorage.getItem('authToken'));

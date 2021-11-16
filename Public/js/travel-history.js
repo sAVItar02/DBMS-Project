@@ -1,7 +1,7 @@
 $('.not-logged-in').hide();
 $('.loader').hide();
 
-const api = `https://dbms-flights-project2.herokuapp.com/travelHistory`;
+const api = `https://dbms-flights-project.herokuapp.com/travelHistory`;
 
 const myHeaders = new Headers();
 myHeaders.append('Authorization', sessionStorage.getItem('authToken'));
@@ -31,6 +31,8 @@ function GetTravelHistory() {
             flightCode: result[i].flightCode,
             date: result[i].depTime,
           };
+
+          console.log(data.date);
 
           dateNew = data.date
             .split('T')[0]

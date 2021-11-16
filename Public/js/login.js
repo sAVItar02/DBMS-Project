@@ -20,8 +20,8 @@ toSignUp.on('click', function (e) {
   signUp.show();
 });
 
-const apiSignup = `https://dbms-flights-project2.herokuapp.com/user/signup`;
-const apiLogin = `https://dbms-flights-project2.herokuapp.com/user/login`;
+const apiSignup = `https://dbms-flights-project.herokuapp.com/user/signup`;
+const apiLogin = `https://dbms-flights-project.herokuapp.com/user/login`;
 // const apiLogin = `http://localhost:3000/user/login`;
 
 const fName = $('#fname');

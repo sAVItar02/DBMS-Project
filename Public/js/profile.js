@@ -1,7 +1,7 @@
 $('.not-logged-in').hide();
 $('.loader').hide();
 
-const api = `https://dbms-flights-project2.herokuapp.com/profile`;
+const api = `https://dbms-flights-project.herokuapp.com/profile`;
 
 const myHeaders = new Headers();
 myHeaders.append('Authorization', sessionStorage.getItem('authToken'));
