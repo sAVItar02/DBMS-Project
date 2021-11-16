@@ -3,7 +3,7 @@ const app = require('./app.js');
 app.use(require('cors')());
 
 const DB =
-  'mongodb+srv://DBMS-ADMIN:aMleosEwXDQ00snL@cluster-flights.3h8gc.mongodb.net/Flights?retryWrites=true&w=majority';
+  'mongodb+srv://DBMS-ADMIN:gTeGI8PpzwpuE2UG@cluster-flights.3h8gc.mongodb.net/Flights?retryWrites=true&w=majority';
 const PORT = process.env.PORT || 3000;
 
 mongoose
